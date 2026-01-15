@@ -1,36 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import ScoreCircle from "./ScoreCircle";
+import { usePuterStore } from "~/lib/puter";
 
 const ResumeCard = ({
   resume: { id, companyName, jobTitle, feedback, imagePath },
 }: {
   resume: Resume;
 }) => {
+  const { fs } = usePuterStore();
+  const [imageUrl, setImageUrl] = useState<string>("");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadImage = async () => {
+      try {
+        setLoading(true);
+        const imageBlob = await fs.read(imagePath);
+        if (imageBlob) {
+          const imgBlob = new Blob([imageBlob], { type: "image/png" });
+          const url = URL.createObjectURL(imgBlob);
+          setImageUrl(url);
+        }
+      } catch (error) {
+        console.error("Failed to load image:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadImage();
+  }, [imagePath, fs]);
+
   return (
-    <Link
-      to={`/resume/${id}`}
-      className="resume-card animate-in fade-in duration-1000"
-    >
+    <Link to={`/resume/${id}`} className="resume-card animate-fade-in">
       <div className="resume-card-header">
-        <div className="flex flex-col gap-2">
-          <h2 className="text-black! font-bold wrap-break-words">
-            {companyName}
-          </h2>
-          <h3 className="'text-lg wrap-break-word text-grey-500">{jobTitle}</h3>
+        <div className="flex flex-col gap-1 flex-1">
+          <h3 className="text-lg font-bold text-charcoal">{companyName}</h3>
+          <p className="text-sm text-muted">{jobTitle}</p>
         </div>
-        <div className="shrink-0">
-          <ScoreCircle score={feedback.overallScore} />
-        </div>
+        <ScoreCircle score={feedback.overallScore} />
       </div>
-      <div className="gradient-border animate-in fade-in duration-1000">
-        <div className="w-full h-full">
+      <div className="border border-border rounded-xl overflow-hidden bg-slate/5">
+        {loading ? (
+          <div className="w-full h-[280px] bg-bg flex items-center justify-center">
+            <p className="text-muted">Loading preview...</p>
+          </div>
+        ) : (
           <img
-            src={imagePath}
-            alt="resume"
-            className="w-full h-[350px] max-sm:h-[200px] object-cover object-top"
+            src={imageUrl}
+            alt="resume preview"
+            className="w-full h-[280px] object-cover object-top"
           />
-        </div>
+        )}
       </div>
     </Link>
   );

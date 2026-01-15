@@ -1,14 +1,18 @@
-import React from "react";
 import { Link } from "react-router";
+import { FileText, Upload } from "lucide-react";
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <Link to="/">
-        <p className="text-2xl font-bold text-gradient">RESUMIND</p>
+      <Link to="/" className="flex items-center gap-2">
+        <FileText className="w-7 h-7" />
+        <p className="brand-logo">Resumind</p>
       </Link>
       <Link to="/upload">
-        <p className="primary-button w-fit">Upload Resume</p>
+        <button className="btn-primary flex items-center gap-2">
+          <Upload className="w-4 h-4" />
+          Upload Resume
+        </button>
       </Link>
     </nav>
   );

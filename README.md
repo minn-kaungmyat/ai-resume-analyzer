@@ -1,18 +1,25 @@
-# Welcome to React Router!
+# Resumind - AI Resume Analyzer
 
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+A modern, minimalist AI-powered resume analysis tool built with React Router and Puter.
 
 ## Features
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+- 🤖 AI-powered resume analysis and feedback
+- 📊 ATS compatibility scoring
+- 📄 Multi-page PDF support
+- 💾 Cloud storage with Puter
+- 🎨 Retro-modern, minimalist design
+- ⚡️ Real-time resume preview
+- 📱 Fully responsive
+
+## Tech Stack
+
+- React Router (SSR)
+- TypeScript
+- TailwindCSS v4
+- Puter SDK (Cloud Storage & AI)
+- Lucide React (Icons)
+- PDF.js
 
 ## Getting Started
 

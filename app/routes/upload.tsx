@@ -7,6 +7,13 @@ import { convertPdfToImage } from "~/lib/pdf2img";
 import { generateUUID } from "~/lib/utils";
 import { prepareInstructions } from "../../constants";
 
+export function meta() {
+  return [
+    { title: "Upload Resume - Resumind" },
+    { name: "description", content: "Upload your resume for AI analysis" },
+  ];
+}
+
 const Upload = () => {
   const { auth, isLoading, fs, ai, kv } = usePuterStore();
   const navigate = useNavigate();
@@ -115,18 +122,18 @@ const Upload = () => {
   };
 
   return (
-    <main className="bg-[url('/images/bg-main.svg')] bg-cover">
+    <main>
       <Navbar />
       <section className="main-section">
-        <div className="page-heading py-16">
-          <h1>Smart feedback for your dream job</h1>
+        <div className="page-heading py-12">
+          <h1>Get AI-Powered Resume Insights</h1>
           {isProcessing ? (
             <>
               <h2>{statusText}</h2>
-              <img src="/images/resume-scan.gif" className="w-full"></img>
+              <div className="w-16 h-16 border-4 border-accent border-t-transparent rounded-full animate-spin mt-4"></div>
             </>
           ) : (
-            <h2>Drop your resume for ATS score and improvement tips</h2>
+            <h2>Upload your resume and get personalized feedback instantly</h2>
           )}
           {!isProcessing ? (
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-8">
@@ -161,7 +168,7 @@ const Upload = () => {
                 <label htmlFor="uploader">Upload Resume</label>
                 <FileUploader onFileSelect={handleFileSelect} />
               </div>
-              <button className="primary-button" type="submit">
+              <button className="btn-primary w-full" type="submit">
                 Analyze Resume
               </button>
             </form>
