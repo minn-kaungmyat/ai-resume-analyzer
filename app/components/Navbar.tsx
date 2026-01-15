@@ -11,7 +11,7 @@ const Navbar = () => {
       <Link to="/upload">
         <button className="btn-primary flex items-center gap-2">
           <Upload className="w-4 h-4" />
-          Upload Resume
+          <span className="upload-text">Upload Resume</span>
         </button>
       </Link>
     </nav>

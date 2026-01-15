@@ -14,8 +14,11 @@ const Auth = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (auth.isAuthenticated) navigate(next);
-  }, [auth.isAuthenticated, next]);
+    if (auth.isAuthenticated) {
+      const redirectTo = next || "/";
+      navigate(redirectTo);
+    }
+  }, [auth.isAuthenticated, next, navigate]);
 
   return (
     <main className="min-h-screen flex items-center justify-center px-6">

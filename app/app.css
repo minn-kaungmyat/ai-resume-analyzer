@@ -103,7 +103,7 @@ form {
   }
 
   .main-section {
-    @apply flex flex-col items-center gap-16 sm:gap-24 pt-40 sm:pt-48 px-6 sm:px-8 pb-20;
+    @apply flex flex-col items-center gap-16 sm:gap-16 pt-12 sm:pt-16 px-6 sm:px-8 pb-20;
   }
 
   .page-heading {
@@ -127,7 +127,19 @@ form {
   }
 
   .navbar {
-    @apply flex flex-row justify-between items-center bg-white/60 backdrop-blur-lg border-2 border-border/50 px-6 sm:px-12 py-4 rounded-full shadow-lg mx-6 sm:mx-8 my-6 fixed top-0 left-0 right-0 z-50;
+    @apply flex flex-row justify-between items-center bg-white/60 backdrop-blur-lg border-2 border-border/50 px-6 sm:px-12 py-4 rounded-full shadow-lg mx-6 sm:mx-8 my-6;
+  }
+
+  @media (max-width: 400px) {
+    .navbar .upload-text {
+      display: none;
+    }
+
+    .navbar .btn-primary {
+      gap: 0.25rem;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
   }
 
   .brand-logo {
