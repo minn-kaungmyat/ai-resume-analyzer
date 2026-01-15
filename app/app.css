@@ -8,12 +8,13 @@
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   /* Modern Color Palette */
-  --color-bg: #fafafa;
-  --color-surface: #ffffff;
-  --color-charcoal: #1a1a1a;
+  --color-bg: #f2efe9;
+  --color-surface: #f8fafc;
+  --color-charcoal: #0f172a;
   --color-slate: #64748b;
-  --color-accent: #f59e0b;
-  --color-accent-hover: #d97706;
+  --color-accent: #3b82f6;
+  --color-accent-hover: #2563eb;
+  --color-accent-light: #dbeafe;
   --color-muted: #94a3b8;
   --color-border: #e2e8f0;
 
@@ -29,40 +30,40 @@
 html,
 body {
   @apply bg-bg text-charcoal;
-  background:
-    radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.08) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(251, 146, 60, 0.06) 0px, transparent 50%),
-    radial-gradient(
-      at 100% 100%,
-      rgba(245, 158, 11, 0.08) 0px,
-      transparent 50%
-    ),
-    radial-gradient(at 0% 100%, rgba(251, 191, 36, 0.06) 0px, transparent 50%),
-    #fafafa;
+  background-image: radial-gradient(
+    circle,
+    rgba(15, 23, 42, 0.05) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
 }
 
 main {
-  @apply min-h-screen pt-10;
+  @apply min-h-screen pt-0;
 }
 
 h1 {
-  @apply max-sm:text-4xl text-5xl font-bold tracking-tight leading-tight;
+  @apply text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95];
+  background: linear-gradient(135deg, #0f172a 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 h2 {
-  @apply max-sm:text-lg text-xl text-slate font-normal;
+  @apply text-lg sm:text-xl text-slate font-normal leading-relaxed max-w-2xl;
 }
 
 label {
-  @apply text-slate text-sm font-medium;
+  @apply text-charcoal text-xs font-medium uppercase tracking-wider;
 }
 
 input {
-  @apply w-full px-4 py-3 rounded-xl border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none bg-surface transition-all;
+  @apply w-full px-4 py-3 rounded-lg border border-border focus:border-charcoal focus:outline-none bg-surface transition-all text-sm;
 }
 
 textarea {
-  @apply w-full px-4 py-3 rounded-xl border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none bg-surface transition-all;
+  @apply w-full px-4 py-3 rounded-lg border border-border focus:border-charcoal focus:outline-none bg-surface transition-all text-sm resize-none;
 }
 
 form {
@@ -71,50 +72,50 @@ form {
 
 @layer components {
   .btn-primary {
-    @apply bg-accent hover:bg-accent-hover text-white font-medium px-6 py-3 rounded-xl transition-all duration-200 cursor-pointer shadow-sm hover:shadow-md;
+    @apply bg-accent hover:bg-accent-hover text-white font-medium px-5 sm:px-6 py-2.5 sm:py-3 text-sm rounded-full transition-all duration-200 cursor-pointer shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30;
   }
 
   .btn-secondary {
-    @apply bg-surface border border-border hover:bg-bg text-charcoal font-medium px-6 py-3 rounded-xl transition-all duration-200 cursor-pointer;
+    @apply bg-white border-2 border-border hover:bg-accent-light hover:border-accent text-charcoal font-medium px-6 py-3 rounded-full transition-all duration-200 cursor-pointer;
   }
 
   .card {
-    @apply bg-surface border border-border rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-200;
+    @apply bg-white border-2 border-border rounded-3xl p-6 hover:border-accent/30 hover:shadow-xl transition-all duration-300 shadow-md;
   }
 
   .resume-nav {
-    @apply flex flex-row justify-between items-center px-8 py-5 border-b border-border bg-surface/80 backdrop-blur-sm;
+    @apply flex flex-row justify-between items-center px-6 sm:px-8 py-4 border-b border-border/50 bg-bg/80 backdrop-blur-md;
   }
 
   .resume-summary {
     @apply flex flex-row items-center justify-center p-6 gap-4;
     .category {
-      @apply flex flex-row gap-3 items-center bg-surface border border-border rounded-xl p-4 w-full justify-between shadow-sm;
+      @apply flex flex-row gap-3 items-center bg-surface border border-border rounded-2xl p-4 w-full justify-between;
     }
   }
 
   .back-button {
-    @apply inline-flex items-center gap-2 border border-border bg-surface hover:bg-bg rounded-xl px-4 py-2 font-medium transition-all duration-200;
+    @apply inline-flex items-center gap-2 border border-border bg-surface hover:bg-surface hover:border-charcoal rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-200;
   }
 
   .auth-button {
-    @apply bg-accent hover:bg-accent-hover rounded-2xl py-4 px-8 cursor-pointer w-[600px] max-md:w-full text-xl font-semibold text-white transition-all duration-200 shadow-lg hover:shadow-xl;
+    @apply bg-accent hover:bg-accent-hover rounded-full py-4 px-10 cursor-pointer w-full max-w-[500px] text-base font-semibold text-white transition-all duration-200 shadow-xl shadow-accent/30 hover:shadow-2xl hover:shadow-accent/40;
   }
 
   .main-section {
-    @apply flex flex-col items-center gap-12 pt-12 max-sm:mx-4 mx-8 pb-10;
+    @apply flex flex-col items-center gap-16 sm:gap-24 pt-40 sm:pt-48 px-6 sm:px-8 pb-20;
   }
 
   .page-heading {
-    @apply flex flex-col items-center gap-4 max-w-4xl text-center;
+    @apply flex flex-col items-center gap-5 sm:gap-6 max-w-5xl text-center;
   }
 
   .resumes-section {
-    @apply flex flex-wrap max-md:flex-col gap-6 items-start max-md:items-center w-full max-w-[1400px] justify-center;
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-[1400px];
   }
 
   .resume-card {
-    @apply flex flex-col gap-5 w-[350px] lg:w-[400px] bg-surface border border-border rounded-2xl p-5 shadow-sm hover:shadow-lg hover:border-accent/30 hover:-translate-y-1 transition-all duration-300;
+    @apply flex flex-col gap-5 bg-white border-2 border-border rounded-3xl p-5 hover:border-accent/40 hover:shadow-xl transition-all duration-300 shadow-md;
   }
 
   .resume-card-header {
@@ -126,38 +127,38 @@ form {
   }
 
   .navbar {
-    @apply flex flex-row justify-between items-center bg-surface/80 backdrop-blur-md border border-border rounded-2xl px-8 py-4 w-full max-w-[1200px] mx-auto shadow-sm;
-  }
-
-  .score-badge {
-    @apply inline-flex items-center justify-center py-2 px-3 gap-2 rounded-xl border border-border font-bold;
-  }
-
-  .form-div {
-    @apply flex flex-col gap-2 w-full items-start;
-  }
-
-  .uplader-drag-area {
-    @apply relative p-8 text-center transition-all duration-200 cursor-pointer bg-surface border-2 border-dashed border-border hover:border-accent hover:bg-accent/5 rounded-xl min-h-[208px];
-  }
-
-  .uploader-selected-file {
-    @apply flex items-center justify-between p-4 bg-bg border border-border rounded-xl;
+    @apply flex flex-row justify-between items-center bg-white/60 backdrop-blur-lg border-2 border-border/50 px-6 sm:px-12 py-4 rounded-full shadow-lg mx-6 sm:mx-8 my-6 fixed top-0 left-0 right-0 z-50;
   }
 
   .brand-logo {
-    @apply text-2xl font-bold tracking-tight;
+    @apply text-xl sm:text-2xl font-bold tracking-tight;
+  }
+
+  .score-badge {
+    @apply inline-flex items-center justify-center py-2 px-3 gap-2 rounded-2xl border border-border font-bold text-sm;
+  }
+
+  .form-div {
+    @apply flex flex-col gap-3 w-full items-start;
+  }
+
+  .uplader-drag-area {
+    @apply relative p-10 text-center transition-all duration-200 cursor-pointer bg-surface border-2 border-dashed border-border hover:border-accent hover:bg-accent-light/30 rounded-2xl min-h-[220px];
+  }
+
+  .uploader-selected-file {
+    @apply flex items-center justify-between p-4 bg-surface border border-border rounded-2xl;
   }
 
   .stat-card {
-    @apply bg-surface border border-border rounded-xl p-4 shadow-sm;
+    @apply bg-surface/50 backdrop-blur-sm border border-border/50 rounded-2xl p-5;
   }
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -166,5 +167,5 @@ form {
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.4s ease-out;
+  animation: fadeIn 0.6s ease-out;
 }

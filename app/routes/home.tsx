@@ -47,7 +47,7 @@ export default function Home() {
       <Navbar />
 
       <section className="main-section">
-        <div className="page-heading py-12">
+        <div className="page-heading">
           <h1>Your Resume Portfolio</h1>
           {!loadingResumes && resumes?.length === 0 ? (
             <h2>

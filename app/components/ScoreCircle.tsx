@@ -1,12 +1,12 @@
 const ScoreCircle = ({ score = 75 }: { score: number }) => {
   const getScoreColor = (score: number) => {
     if (score >= 80) return "#10b981"; // green
-    if (score >= 60) return "#f59e0b"; // amber
+    if (score >= 60) return "#3b82f6"; // blue
     return "#ef4444"; // red
   };
 
-  const radius = 36;
-  const stroke = 5;
+  const radius = 38;
+  const stroke = 4;
   const normalizedRadius = radius - stroke / 2;
   const circumference = 2 * Math.PI * normalizedRadius;
   const progress = score / 100;
@@ -28,7 +28,7 @@ const ScoreCircle = ({ score = 75 }: { score: number }) => {
           r={normalizedRadius}
           stroke="#e2e8f0"
           strokeWidth={stroke}
-          fill="white"
+          fill="#f8fafc"
         />
         {/* Progress circle */}
         <circle
@@ -47,8 +47,7 @@ const ScoreCircle = ({ score = 75 }: { score: number }) => {
 
       {/* Score text */}
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="font-bold text-xl text-charcoal">{score}</span>
-        <span className="text-[10px] text-muted font-medium">SCORE</span>
+        <span className="font-bold text-2xl text-charcoal">{score}</span>
       </div>
     </div>
   );

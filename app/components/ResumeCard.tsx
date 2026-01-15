@@ -41,10 +41,10 @@ const ResumeCard = ({
         </div>
         <ScoreCircle score={feedback.overallScore} />
       </div>
-      <div className="border border-border rounded-xl overflow-hidden bg-slate/5">
+      <div className="border-2 border-border rounded-2xl overflow-hidden bg-surface">
         {loading ? (
-          <div className="w-full h-[280px] bg-bg flex items-center justify-center">
-            <p className="text-muted">Loading preview...</p>
+          <div className="w-full h-[280px] bg-surface flex items-center justify-center">
+            <p className="text-muted text-sm">Loading preview...</p>
           </div>
         ) : (
           <img

@@ -125,18 +125,18 @@ const Upload = () => {
     <main>
       <Navbar />
       <section className="main-section">
-        <div className="page-heading py-12">
+        <div className="page-heading">
           <h1>Get AI-Powered Resume Insights</h1>
           {isProcessing ? (
             <>
               <h2>{statusText}</h2>
-              <div className="w-16 h-16 border-4 border-accent border-t-transparent rounded-full animate-spin mt-4"></div>
+              <div className="w-16 h-16 border-4 border-accent border-t-transparent rounded-full animate-spin mt-6"></div>
             </>
           ) : (
             <h2>Upload your resume and get personalized feedback instantly</h2>
           )}
           {!isProcessing ? (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-8">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-12">
               <div className="form-div">
                 <label htmlFor="company-name">Company Name</label>
                 <input

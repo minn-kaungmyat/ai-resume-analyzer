@@ -18,14 +18,14 @@ const Auth = () => {
   }, [auth.isAuthenticated, next]);
 
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <div className="card max-w-2xl w-full mx-4">
-        <section className="flex flex-col gap-8">
-          <div className="flex flex-col items-center gap-3 text-center">
+    <main className="min-h-screen flex items-center justify-center px-6">
+      <div className="max-w-3xl w-full">
+        <section className="flex flex-col gap-12 items-center text-center">
+          <div className="flex flex-col items-center gap-6">
             <h1>Welcome to Resumind</h1>
-            <h2>Log In to Continue Your Journey</h2>
+            <h2>Log in to continue your journey</h2>
           </div>
-          <div>
+          <div className="w-full max-w-md">
             {isLoading ? (
               <button className="auth-button animate-pulse">
                 Signing you in...
